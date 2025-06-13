@@ -20,12 +20,7 @@
                 const marisa = new Actor(Charactor.Marisa, Position.Left);
                 const reimu = new Actor(Charactor.Reimu, Position.Right);
 
-                const today = new Date();
-                const year = today.getFullYear();
-                const month = today.getMonth() + 1;
-                const date = today.getDate();
-                const format = `${date}/${month}/${date}`;
-                const calendar = new Sprite(text(format));
+                const calendar = new Sprite(text("梶塚太智 作", { size: 3 }));
 
                 const js_icon = new Sprite(image("image/icon.jpg"));
                 js_icon.position(50, 0);
