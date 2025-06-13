@@ -1,9 +1,9 @@
 let zIndex = 0;
 
 class Sprite {
-    constructor(elm) {
+    constructor(elm, { width = 15, height = 10 }) {
         this.x = this.y = 0;
-        [this.width, this.height] = [15, 10];
+        [this.width, this.height] = [width, height];
         console.log(elm.offsetHeight);
         this.set(elm);
     }
@@ -35,10 +35,11 @@ class Sprite {
         await animation.finished;
         this.position(x, y);
     }
-    size(x, y) {
-        [this.width, this.height] = [x, y];
-        this.elm.style.width = `${x}vw`;
-        this.elm.style.height = `${y}vh`;
+    size(width, height) {
+        [this.width, this.height] = [width, height];
+        this.elm.style.width = `${width}vw`;
+        this.elm.style.height = `${height}vh`;
+        position(this.x, this.y);
     }
     hide() {
         this.elm.style.display = "none";
