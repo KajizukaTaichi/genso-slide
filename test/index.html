@@ -12,17 +12,15 @@
             async function main() {
                 const marisa = new Actor(Charactor.Marisa, Position.Left);
                 const reimu = new Actor(Charactor.Reimu, Position.Right);
-                const subtitle = new Sprite(text("JSでゆっくり動画ができる！"));
-                subtitle.position(30, 50);
+                const sub = new Sprite(text("JSでゆっくり動画ができる！"));
+                sub.position(30, 50);
 
                 await marisa.say("a.mp3");
-                subtitle.set(
-                    text("Genso Slide", { size: 100, font: "monospace" }),
-                );
+                sub.set(text("Genso Slide", { size: 100, font: "monospace" }));
                 await sleep(300);
 
                 await reimu.say("b.mp3");
-                subtitle.hide();
+                sub.hide();
             }
         </script>
     </body>
