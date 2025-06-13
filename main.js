@@ -12,7 +12,7 @@ stage.style.position = "relative";
 
 class Actor {
     constructor(name, position) {
-        [this.name, this.locus] = [name, position];
+        [this.name, this.position] = [name, position];
 
         this.draw = document.createElement("img");
         this.draw.src = image_url(this.name);
@@ -22,7 +22,7 @@ class Actor {
         this.draw.style.height = "50%";
         this.draw.style.zIndex = "999";
         this.draw.style.bottom = "0";
-        this.draw.style[this.locus] = "0";
+        this.draw.style[this.position] = "0";
 
         stage.appendChild(this.draw);
     }
@@ -79,7 +79,7 @@ class Sprite {
         this.elm.style.width = width + "%";
         this.elm.style.height = height + "%";
         this.elm.style.fontSize = this.height * 0.5 + "%";
-        locus"(this.x, this.y);
+        this.locus(this.x, this.y);
     }
     hide() {
         this.elm.style.display = "none";
