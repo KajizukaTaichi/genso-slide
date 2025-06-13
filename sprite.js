@@ -29,14 +29,12 @@ class Sprite {
         this.elm.style.left = `${x}vw`;
         this.elm.style.top = `${y}vh`;
     }
-    move(x, y, time = 1000) {
-        this.elm.animate(
-            [
-                { left: `${this.y}vw`, top: `${this.x}vw` },
-                { left: `${y}vw`, top: `${x}vw` },
-            ],
+    async move(x, y, time = 1000) {
+        const animation = this.elm.animate(
+            [{ left: `${x}vw`, top: `${y}vh` }],
             time,
         );
+        await animation.finished;
         this.position(x, y);
     }
     size(x, y) {
