@@ -2,11 +2,9 @@ let zIndex = 0;
 
 class Sprite {
     constructor(elm) {
-        [this.x, this.y] = [0, 0];
-        [this.width, this.height] = [
-            (window.innerWidth / elm.getBoundingClientRect().width) * 100,
-            (window.innerHeight / elm.getBoundingClientRect().height) * 100,
-        ];
+        this.x = this.y = 0;
+        [this.width, this.height] = [150, 100];
+        console.log(elm.offsetHeight);
         this.set(elm);
     }
     set(elm) {
@@ -26,6 +24,7 @@ class Sprite {
     }
     position(x, y) {
         [this.x, this.y] = [x, y];
+        console.log(this.x, this.width, fixLayoutX(this));
         this.elm.style.left = `${fixLayoutX(this)}vw`;
         this.elm.style.top = `${fixLayoutY(this)}vh`;
     }
