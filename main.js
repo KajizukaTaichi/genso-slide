@@ -55,29 +55,24 @@ class Sprite {
         this.elm.style.position = "absolute";
         this.elm.style.zIndex = zIndex++;
 
-        this.locus(this.x, this.y);
-        this.size(this.width, this.height);
-
         stage.appendChild(this.elm);
     }
     set x(value) {
-        this.x = value;
+        this._x = value;
         this.elm.style.left = fixLayoutX(this);
     }
     set y(value) {
-        this.y = value;
+        this._y = value;
         this.elm.style.top = fixLayoutY(this);
     }
     set width(value) {
-        this.width = value;
+        this._width = value;
         this.elm.style.width = value + "%";
-        this.locus(this.x, this.y);
     }
     set height(value) {
-        this.height = value;
+        this._height = value;
         this.elm.style.height = value + "%";
         this.elm.style.fontSize = value * 0.5 + "%";
-        this.locus(this.x, this.y);
     }
     async move({ x = 0, y = 0 }, time = 1000) {
         [this.x, this.y] = [this.x + x, this.y + y];
@@ -86,7 +81,6 @@ class Sprite {
             time,
         );
         await animation.finished;
-        this.locus(x, y);
     }
     hide() {
         this.elm.style.display = "none";
