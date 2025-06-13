@@ -72,3 +72,5 @@ async function waitPlayAudioWithMouthSync(audio_url, onMouthChange) {
 
 const image_url = (name, style = Look.Normal) =>
     `https://kajizukataichi.github.io/genso-slide/resource/${name}/${style}.jpg`;
+
+const sleep = (time) => new Promise((resolve) => setTimeout(resolve, time));
