@@ -57,6 +57,7 @@ function text(
     elm.style.fontFamily = font;
     elm.style.color = color;
     elm.style.backgroundColor = back;
+    elm.style.textAlign = "center";
     elm.style.padding = "1vh";
     elm.style.margin = "0";
     elm.innerHTML = text;
