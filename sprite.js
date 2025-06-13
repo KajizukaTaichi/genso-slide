@@ -3,7 +3,7 @@ let zIndex = 0;
 class Sprite {
     constructor(elm) {
         [this.x, this.y] = [0, 0];
-        this.width = this.height = "max-content";
+        [this.width, this.height] = [0, 0];
         this.set(elm);
     }
     set(elm) {
@@ -16,8 +16,8 @@ class Sprite {
         this.elm.style.left = `${this.x}vw`;
         this.elm.style.top = `${this.y}vh`;
 
-        this.elm.style.width = `${this.x}vw`;
-        this.elm.style.height = `${this.x}vh`;
+        this.elm.style.width = `${this.width}vw`;
+        this.elm.style.height = `${this.height}vh`;
 
         document.body.appendChild(this.elm);
     }
