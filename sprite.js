@@ -44,9 +44,17 @@ class Sprite {
 
 function text(text, size = 50) {
     const elm = document.createElement("p");
-    elm.innerHTML = text;
     elm.style.fontSize = `${size}px`;
     elm.style.padding = "10px";
     elm.style.margin = "0";
+    elm.innerHTML = text;
+    return elm;
+}
+
+function image(url) {
+    const elm = document.createElement("img");
+    elm.style.padding = "10px";
+    elm.style.margin = "0";
+    elm.src = url;
     return elm;
 }
