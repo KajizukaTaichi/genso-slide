@@ -12,6 +12,7 @@ const reimu = new Actor(Charactor.Reimu, Position.Right);
 const js_icon = new Sprite(image("image/icon.jpg"));
 js_icon.position(50, 0);
 js_icon.size(10, 15);
+
 js_icon.move(50, 30, 800);
 await sleep(300);
 
