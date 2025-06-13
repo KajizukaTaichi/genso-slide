@@ -2,7 +2,7 @@ const Look = Object.freeze({ Normal: "normal", Say: "say" });
 const Position = Object.freeze({ Left: "left", Right: "right" });
 const Charactor = Object.freeze({ Reimu: "reimu", Marisa: "marisa" });
 
-const stage = document.getElementById("stage");
+const stage = document.getElementById("genso-stage");
 
 class Actor {
     constructor(name, position) {
