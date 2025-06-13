@@ -123,10 +123,11 @@ function image(url, { size = 5 } = {}) {
 /// === Helper functions ===
 
 const fixLayout = (sprite, position, size) => {
-    const value = sprite[position] - sprite[size] / 2;
+    console.log(sprite);
+    let value = sprite[position] - sprite[size] / 2;
     if (value < 0) value = 0;
-    if (value > 100) value = 100;
-    `${sprite.x - sprite.width / 2}%`;
+    if (value > 100) value = sprite[size];
+    return `${value}%`;
 };
 const fixLayoutX = (sprite) => fixLayout(sprite, "x", "width");
 const fixLayoutY = (sprite) => fixLayout(sprite, "y", "height");
