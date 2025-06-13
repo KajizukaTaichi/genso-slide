@@ -103,7 +103,7 @@ function text(
     elm.style.display = "flex";
     elm.style.alignItems = "center";
     elm.style.justifyContent = "center";
-    elm.style.padding = "1%";
+    elm.style.padding = "3%";
     elm.style.margin = "0";
     elm.innerHTML = text;
     return elm;
@@ -112,7 +112,6 @@ function text(
 function image(url, { size = 5 } = {}) {
     const elm = document.createElement("img");
     elm.style.height = size + "%";
-    elm.style.padding = "1%";
     elm.style.margin = "0";
     elm.src = url;
     return elm;
