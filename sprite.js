@@ -1,9 +1,9 @@
 let zIndex = 0;
 
 class Sprite {
-    constructor(elm, { width = 15, height = 10 } = {}) {
+    constructor(elm) {
         this.x = this.y = 0;
-        [this.width, this.height] = [width, height];
+        [this.width, this.height] = [15, 10];
         console.log(elm.offsetHeight);
         this.set(elm);
     }
