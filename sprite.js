@@ -4,8 +4,8 @@ class Sprite {
     constructor(elm) {
         [this.x, this.y] = [0, 0];
         [this.width, this.height] = [
-            window.innerHeight * elm.innerWidth,
-            window.innerHeight * elm.innerHeight,
+            window.innerHeight * elm.width,
+            window.innerHeight * elm.height,
         ];
         this.set(elm);
     }
@@ -60,7 +60,7 @@ function text(
     return elm;
 }
 
-function image(url, { size = 50 } = {}) {
+function image(url, { size = 5 } = {}) {
     const elm = document.createElement("img");
     elm.style.height = `${size}vh`;
     elm.style.padding = "1vh";
