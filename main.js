@@ -59,8 +59,9 @@ class Sprite {
         this.elm.style.left = fixLayoutX(this);
         this.elm.style.top = fixLayoutY(this);
 
-        this.elm.style.width = `${this.width}%`;
-        this.elm.style.height = `${this.height}%`;
+        this.elm.style.width = this.width + "%";
+        this.elm.style.height = this.height + "%";
+        this.elm.style.height = this.height + "%";
 
         stage.appendChild(this.elm);
     }
@@ -80,8 +81,8 @@ class Sprite {
     }
     size(width, height) {
         [this.width, this.height] = [width, height];
-        this.elm.style.width = `${width}%`;
-        this.elm.style.height = `${height}%`;
+        this.elm.style.width = width + "%";
+        this.elm.style.height = height + "%";
         this.position(this.x, this.y);
     }
     hide() {
@@ -97,7 +98,7 @@ function text(
     { size = 5, font = "Arial", color = "black", back = "white" } = {},
 ) {
     const elm = document.createElement("p");
-    elm.style.fontSize = `${size}%`;
+    elm.style.fontSize = size + "%";
     elm.style.fontFamily = font;
     elm.style.color = color;
     elm.style.backgroundColor = back;
@@ -113,7 +114,7 @@ function text(
 
 function image(url, { size = 5 } = {}) {
     const elm = document.createElement("img");
-    elm.style.height = `${size}%`;
+    elm.style.height = size + "%";
     elm.style.padding = "1%";
     elm.style.margin = "0";
     elm.src = url;
@@ -127,7 +128,7 @@ const fixLayout = (sprite, position, size) => {
     let value = sprite[position] - sprite[size] / 2;
     if (value < 0) value = 0;
     if (value > 100) value = sprite[size];
-    return `${value}%`;
+    return value + "%";
 };
 const fixLayoutX = (sprite) => fixLayout(sprite, "x", "width");
 const fixLayoutY = (sprite) => fixLayout(sprite, "y", "height");
