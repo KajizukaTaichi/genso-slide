@@ -16,7 +16,7 @@ icon.size(10, 15);
 await marisa.say("audio/voice_1.mp3");
 icon.hide();
 
-sub.set(text("Genso Slide", { size: 100, font: "monospace" }));
+sub.set(text("Genso Slide", { size: 10, font: "monospace" }));
 await sleep(300);
 await reimu.say("audio/voice_2.mp3");
 ```
