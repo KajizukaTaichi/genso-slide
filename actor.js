@@ -1,8 +1,8 @@
-export const Look = Object.freeze({ Normal: "normal", Say: "say" });
-export const Position = Object.freeze({ Left: "left", Right: "right" });
-export const Charactor = Object.freeze({ Reimu: "reimu", Marisa: "marisa" });
+const Look = Object.freeze({ Normal: "normal", Say: "say" });
+const Position = Object.freeze({ Left: "left", Right: "right" });
+const Charactor = Object.freeze({ Reimu: "reimu", Marisa: "marisa" });
 
-export class Actor {
+class Actor {
     constructor(name, position) {
         [this.name, this.position] = [name, position];
 
@@ -32,8 +32,7 @@ export class Actor {
     }
 }
 
-export const sleep = (time) =>
-    new Promise((resolve) => setTimeout(resolve, time));
+const sleep = (time) => new Promise((resolve) => setTimeout(resolve, time));
 
 async function waitPlayAudioWithMouthSync(audio_url, onMouthChange) {
     const audioCtx = new window.AudioContext();
