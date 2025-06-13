@@ -1,6 +1,6 @@
 let zIndex = 0;
 
-class Sprite {
+export class Sprite {
     constructor(elm) {
         [this.x, this.y] = [0, 0];
         [this.width, this.height] = [
@@ -16,8 +16,8 @@ class Sprite {
         this.elm.style.position = "absolute";
         this.elm.style.zIndex = zIndex++;
 
-        this.elm.style.left = `${this.x}vw`;
-        this.elm.style.top = `${this.y}vh`;
+        this.elm.style.left = `${fixLayoutX(this)}vw`;
+        this.elm.style.top = `${fixLayoutY(this)}vh`;
 
         this.elm.style.width = `${this.width}vw`;
         this.elm.style.height = `${this.height}vh`;
@@ -26,12 +26,12 @@ class Sprite {
     }
     position(x, y) {
         [this.x, this.y] = [x, y];
-        this.elm.style.left = `${x}vw`;
-        this.elm.style.top = `${y}vh`;
+        this.elm.style.left = `${fixLayoutX(this)}vw`;
+        this.elm.style.top = `${fixLayoutY(this)}vh`;
     }
     async move(x, y, time = 1000) {
         const animation = this.elm.animate(
-            [{ left: `${x}vw`, top: `${y}vh` }],
+            [{ left: `${fixLayoutX(this)}vw`, top: `${fixLayoutY(this)}vh` }],
             time,
         );
         await animation.finished;
@@ -50,7 +50,7 @@ class Sprite {
     }
 }
 
-function text(
+export function text(
     text,
     { size = 5, font = "Arial", color = "black", back = "white" } = {},
 ) {
@@ -65,7 +65,7 @@ function text(
     return elm;
 }
 
-function image(url, { size = 5 } = {}) {
+export function image(url, { size = 5 } = {}) {
     const elm = document.createElement("img");
     elm.style.height = `${size}vh`;
     elm.style.padding = "1vh";
@@ -73,3 +73,6 @@ function image(url, { size = 5 } = {}) {
     elm.src = url;
     return elm;
 }
+
+const fixLayoutX = (sprite) => sprite.x + sprite.width / 2;
+const fixLayoutY = (sprite) => sprite.y + sprite.height / 2;
