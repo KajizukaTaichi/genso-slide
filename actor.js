@@ -19,10 +19,11 @@ class Actor {
     }
 
     async say(audio_url) {
-        this.draw.style.zoom = "120%";
         await waitPlayAudioWithMouthSync(audio_url, (isOpen) => {
             const look = isOpen ? Look.Say : Look.Normal;
+            const zoom = isOpen ? "101%" : "100%";
             this.draw.src = image_url(this.name, look);
+            this.draw.style.zoom = zoom;
             void this.draw.offsetHeight;
         });
         clearInterval(this.sayInterval);
