@@ -103,6 +103,7 @@ class Sprite {
             time,
         );
         await animation.finished;
+        [this.x, this.y] = [this._x, this._y];
     }
 
     hide() {
@@ -140,7 +141,6 @@ function image(url, { size = 5 } = {}) {
 /// === Helper functions ===
 
 const fixLayout = (sprite, position, size) => {
-    console.log(sprite);
     let value = sprite[position] - sprite[size] / 2;
     if (value < 0) value = 0;
     if (value > 100) value = sprite[size];
