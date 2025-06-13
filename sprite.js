@@ -13,11 +13,11 @@ class Sprite {
         this.elm.style.position = "absolute";
         this.elm.style.zIndex = zIndex++;
 
-        this.elm.style.left = this.x;
-        this.elm.style.top = this.y;
+        this.elm.style.left = `${this.x}vw`;
+        this.elm.style.top = `${this.y}vh`;
 
-        this.elm.style.width = this.width;
-        this.elm.style.height = this.height;
+        this.elm.style.width = `${this.x}vw`;
+        this.elm.style.height = `${this.x}vh`;
 
         document.body.appendChild(this.elm);
     }
