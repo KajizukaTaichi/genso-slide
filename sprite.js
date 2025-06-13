@@ -72,5 +72,5 @@ function image(url, { size = 5 } = {}) {
     return elm;
 }
 
-const fixLayoutX = `${(sprite) => sprite.x - sprite.width / 2}vw`;
-const fixLayoutY = `${(sprite) => sprite.y - sprite.height / 2}vh`;
+const fixLayoutX = (sprite) => `${sprite.x - sprite.width / 2}vw`;
+const fixLayoutY = (sprite) => `${sprite.y - sprite.height / 2}vh`;
