@@ -22,9 +22,9 @@ class Sprite {
         document.body.appendChild(this.elm);
     }
     position(x, y) {
-        [this.x, this.y] = [`${x}vw`, `${y}vh`];
-        this.elm.style.left = this.x;
-        this.elm.style.top = this.y;
+        [this.x, this.y] = [x, y];
+        this.elm.style.left = `${x}vw`;
+        this.elm.style.top = `${y}vh`;
     }
     size(x, y) {
         [this.width, this.height] = [x, y];
