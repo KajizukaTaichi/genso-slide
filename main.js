@@ -56,12 +56,8 @@ class Sprite {
         this.elm.style.position = "absolute";
         this.elm.style.zIndex = zIndex++;
 
-        this.elm.style.left = fixLayoutX(this);
-        this.elm.style.top = fixLayoutY(this);
-
-        this.elm.style.width = this.width + "%";
-        this.elm.style.height = this.height + "%";
-        this.elm.style.font = this.height + "%";
+        this.position(this.x, this.y);
+        this.size(this.width, this.height);
 
         stage.appendChild(this.elm);
     }
@@ -83,6 +79,7 @@ class Sprite {
         [this.width, this.height] = [width, height];
         this.elm.style.width = width + "%";
         this.elm.style.height = height + "%";
+        this.elm.style.font = this.height + "%";
         this.position(this.x, this.y);
     }
     hide() {
