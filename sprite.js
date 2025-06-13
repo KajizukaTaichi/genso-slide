@@ -44,10 +44,10 @@ class Sprite {
 
 function text(text, { size = 50, font = "Arial", color = "black" } = {}) {
     const elm = document.createElement("p");
-    elm.style.fontSize = `${size}px`;
+    elm.style.fontSize = `${size}vh`;
     elm.style.fontFamily = font;
     elm.style.color = color;
-    elm.style.padding = "10px";
+    elm.style.padding = "1vh";
     elm.style.margin = "0";
     elm.innerHTML = text;
     return elm;
