@@ -1,8 +1,8 @@
-const Look = Object.freeze({ Normal: "normal", Say: "say" });
-const Position = Object.freeze({ Left: "left", Right: "right" });
-const Charactor = Object.freeze({ Reimu: "reimu", Marisa: "marisa" });
+export const Look = Object.freeze({ Normal: "normal", Say: "say" });
+export const Position = Object.freeze({ Left: "left", Right: "right" });
+export const Charactor = Object.freeze({ Reimu: "reimu", Marisa: "marisa" });
 
-class Actor {
+export class Actor {
     constructor(name, position) {
         [this.name, this.position] = [name, position];
 
@@ -31,6 +31,9 @@ class Actor {
         this.draw.src = image_url(this.name, Look.say);
     }
 }
+
+export const sleep = (time) =>
+    new Promise((resolve) => setTimeout(resolve, time));
 
 async function waitPlayAudioWithMouthSync(audio_url, onMouthChange) {
     const audioCtx = new window.AudioContext();
@@ -74,5 +77,3 @@ async function waitPlayAudioWithMouthSync(audio_url, onMouthChange) {
 
 const image_url = (name, style = Look.Normal) =>
     `https://kajizukataichi.github.io/genso-slide/resource/${name}/${style}.jpg`;
-
-const sleep = (time) => new Promise((resolve) => setTimeout(resolve, time));
