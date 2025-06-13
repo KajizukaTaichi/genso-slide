@@ -1,7 +1,7 @@
 let zIndex = 0;
 
 class Sprite {
-    constructor(elm, { width = 15, height = 10 }) {
+    constructor(elm, { width = 15, height = 10 } = {}) {
         this.x = this.y = 0;
         [this.width, this.height] = [width, height];
         console.log(elm.offsetHeight);
@@ -39,7 +39,7 @@ class Sprite {
         [this.width, this.height] = [width, height];
         this.elm.style.width = `${width}vw`;
         this.elm.style.height = `${height}vh`;
-        position(this.x, this.y);
+        this.position(this.x, this.y);
     }
     hide() {
         this.elm.style.display = "none";
