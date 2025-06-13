@@ -36,7 +36,7 @@ class Actor {
         });
         clearInterval(this.sayInterval);
         this.draw.style.zoom = "100%";
-        this.draw.src = image_url(this.name, Look.say);
+        this.draw.src = image_url(this.name, Look.Normal);
     }
 }
 
