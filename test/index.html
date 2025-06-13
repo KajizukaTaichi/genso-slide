@@ -6,8 +6,8 @@
     </head>
     <body>
         <button onclick="main(); this.remove()">Start</button>
-        <script src="../actor.js"></script>
-        <script src="../sprite.js"></script>
+        <script src="../actor.mjs"></script>
+        <script src="../sprite.mjs"></script>
         <script>
             async function main() {
                 const marisa = new Actor(Charactor.Marisa, Position.Left);
@@ -15,8 +15,8 @@
 
                 const sub = new Sprite(text("JSでゆっくり動画ができる！"));
                 const icon = new Sprite(image("image/icon.jpg"));
-                sub.position(30, 50);
-                icon.position(40, 30);
+                sub.position(50, 50);
+                icon.position(50, 30);
                 icon.size(10, 15);
 
                 await icon.move(30, 30, 300);
