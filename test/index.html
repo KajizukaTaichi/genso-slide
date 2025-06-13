@@ -8,11 +8,12 @@
             async function main() {
                 const marisa = new Actor(Charactor.Marisa, Position.Left);
                 const reimu = new Actor(Charactor.Reimu, Position.Right);
-                const title = new Sprite(text("Hello", 100));
-                await reimu.say("hello.mp3");
-                title.position(30, 30);
-                await marisa.say("hello.mp3");
-                title.set(text("Bye"));
+                const subtitle = new Sprite(text("JSでゆっくり動画ができる！"));
+
+                await reimu.say("a.mp3");
+                subtitle.set(text("Genso-Slide!"));
+                await marisa.say("b.mp3");
+                subtitle.hide();
             }
             main();
         </script>
