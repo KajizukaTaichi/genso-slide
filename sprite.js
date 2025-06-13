@@ -4,8 +4,8 @@ class Sprite {
     constructor(elm) {
         [this.x, this.y] = [0, 0];
         [this.width, this.height] = [
-            window.innerHeight * elm.width,
-            window.innerHeight * elm.height,
+            (window.innerWidth / elm.getBoundingClientRect().width) * 100,
+            (window.innerHeight / elm.getBoundingClientRect().height) * 100,
         ];
         this.set(elm);
     }
