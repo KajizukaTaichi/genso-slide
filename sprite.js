@@ -50,9 +50,6 @@ class Sprite {
     show() {
         this.elm.style.display = "block";
     }
-    remove() {
-        this.elm.remove();
-    }
 }
 
 function text(
