@@ -2,8 +2,10 @@
 <html>
     <head>
         <title>紹介</title>
+        <meta charset="utf-8" />
     </head>
     <body>
+        <button onclick="main(); this.remove()">Start</button>
         <script src="../actor.js"></script>
         <script src="../sprite.js"></script>
         <script>
@@ -18,7 +20,6 @@
                 await reimu.say("b.mp3");
                 subtitle.hide();
             }
-            main();
         </script>
     </body>
 </html>
