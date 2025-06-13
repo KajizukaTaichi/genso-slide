@@ -21,6 +21,16 @@ await sleep(300);
 await reimu.say("audio/voice_2.mp3");
 ```
 
+ファイル構成はこんな感じです。
+```
+├── audio
+│  ├── voice_1.mp3
+│  └── voice_2.mp3
+├── image
+│  └── icon.jpg
+└── index.html
+```
+
 名前の由来は、「Gentoo Linux」と「幻想郷」にインスパイアされています。
 
 ## ライセンス
