@@ -1,7 +1,7 @@
 # Genso Slide
 JSでゆっくり動画で出来るスライド作成ライブラリです。
 
-以下のコードの様に使います。このデモは [](https://kajizukataichi.github.io/genso-slide/test) で公開されています。
+以下のコードの様に使います。このデモは [ここ](https://kajizukataichi.github.io/genso-slide/test) で公開されています。
 ```javascript
 const marisa = new Actor(Charactor.Marisa, Position.Left);
 const reimu = new Actor(Charactor.Reimu, Position.Right);
