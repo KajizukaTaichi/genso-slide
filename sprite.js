@@ -42,9 +42,11 @@ class Sprite {
     }
 }
 
-function text(text, size = 50) {
+function text(text, { size = 50, font = "Arial", color = "black" } = {}) {
     const elm = document.createElement("p");
     elm.style.fontSize = `${size}px`;
+    elm.style.fontFamily = font;
+    elm.style.color = color;
     elm.style.padding = "10px";
     elm.style.margin = "0";
     elm.innerHTML = text;
