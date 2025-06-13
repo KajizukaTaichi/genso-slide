@@ -2,6 +2,8 @@ const Look = Object.freeze({ Normal: "normal", Say: "say" });
 const Position = Object.freeze({ Left: "left", Right: "right" });
 const Charactor = Object.freeze({ Reimu: "reimu", Marisa: "marisa" });
 
+const stage = document.getElementById("stage");
+
 class Actor {
     constructor(name, position) {
         [this.name, this.position] = [name, position];
@@ -16,7 +18,7 @@ class Actor {
         this.draw.style.bottom = "0";
         this.draw.style[this.position] = "0";
 
-        document.body.appendChild(this.draw);
+        stage.appendChild(this.draw);
     }
 
     async say(audio_url) {
