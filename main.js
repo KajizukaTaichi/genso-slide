@@ -5,7 +5,9 @@ const Position = Object.freeze({ Left: "left", Right: "right" });
 const Charactor = Object.freeze({ Reimu: "reimu", Marisa: "marisa" });
 
 const stage = document.getElementById("genso-stage");
-stage.style.fontSize = stage.getBoundingClientRect().height + "px";
+stage.style.width = stage.getBoundingClientRect().width + "px";
+stage.style.height = stage.getBoundingClientRect().height + "px";
+stage.style.fontSize = stage.style.height;
 stage.style.position = "relative";
 
 class Actor {
@@ -120,12 +122,14 @@ function image(url, { size = 5 } = {}) {
 
 /// === Helper functions ===
 
-const fixLayoutX = (sprite) => {
-    const value = sprite.x - sprite.width / 2;
+const fixLayout = (sprite, position, size) => {
+    const value = sprite[position] - sprite[size] / 2;
     if (value < 0) value = 0;
+    if (value > 100) value = 100;
     `${sprite.x - sprite.width / 2}%`;
 };
-const fixLayoutY = (sprite) => `${sprite.y - sprite.height / 2}%`;
+const fixLayoutX = (sprite) => fixLayout(sprite, "x", "width");
+const fixLayoutY = (sprite) => fixLayout(sprite, "y", "height");
 
 const image_url = (name, style = Look.Normal) =>
     `https://kajizukataichi.github.io/genso-slide/resource/${name}/${style}.jpg`;
