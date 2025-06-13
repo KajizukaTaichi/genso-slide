@@ -103,7 +103,7 @@ function text(
     elm.style.display = "flex";
     elm.style.alignItems = "center";
     elm.style.justifyContent = "center";
-    elm.style.padding = "3%";
+    elm.style.padding = "1%";
     elm.style.margin = "0";
     elm.innerHTML = text;
     return elm;
