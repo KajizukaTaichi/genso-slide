@@ -21,7 +21,7 @@ await sleep(300);
 await reimu.say("audio/voice_2.mp3");
 ```
 
-ファイル構成はこんな感じです。
+ファイル構成は自由ですが、例えば以上のデモではこんな感じです。
 ```
 ├── audio
 │  ├── voice_1.mp3
