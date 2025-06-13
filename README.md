@@ -9,14 +9,17 @@ JavaScriptでゆっくり動画が出来るスライド作成ライブラリで�
 const marisa = new Actor(Charactor.Marisa, Position.Left);
 const reimu = new Actor(Charactor.Reimu, Position.Right);
 
-const sub = new Sprite(text("JSでゆっくり動画ができる！"));
+const sub = new Sprite(text("JSでゆっくり動画ができる！", { back: "lightblue" }));
+sub.position(50, 50);
+sub.size(50, 10);
+
 const icon = new Sprite(image("image/icon.jpg"));
-sub.position(30, 50);
-icon.position(40, 30);
+icon.position(30, 30);
 icon.size(10, 15);
 
-await icon.move(30, 30, 300);
+await icon.move(50, 30, 800);
 await marisa.say("audio/voice_1.mp3");
+sub.position(50, 40);
 icon.hide();
 
 sub.set(text("Genso Slide", { size: 10, font: "monospace" }));
