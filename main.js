@@ -74,6 +74,19 @@ class Sprite {
         this.elm.style.height = value + "%";
         this.elm.style.fontSize = value * 0.5 + "%";
     }
+    get x() {
+        return this._x;
+    }
+    get y() {
+        return this._y;
+    }
+    get width() {
+        return this._width;
+    }
+    get height() {
+        return this._height;
+    }
+
     async move({ x = 0, y = 0 }, time = 1000) {
         [this.x, this.y] = [this.x + x, this.y + y];
         const animation = this.elm.animate(
