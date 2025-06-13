@@ -31,7 +31,7 @@ class Actor {
             const zoom = isOpen ? "101%" : "100%";
             this.draw.src = image_url(this.name, look);
             this.draw.style.zoom = zoom;
-            void this.draw.offsetHeight;
+            void stage.offsetHeight;
         });
         clearInterval(this.sayInterval);
         this.draw.style.zoom = "100%";
