@@ -6,7 +6,7 @@ JavaScriptでゆっくり動画が出来るスライド作成ライブラリで�
 
 以下のコードの様に使います。このデモは [ここ](https://kajizukataichi.github.io/genso-slide/test) で公開されています。
 ```javascript
-onst marisa = new Actor(Charactor.Marisa, Position.Left);
+const marisa = new Actor(Charactor.Marisa, Position.Left);
 const reimu = new Actor(Charactor.Reimu, Position.Right);
 
 const calendar = new Sprite(text("梶塚太智 作"));
