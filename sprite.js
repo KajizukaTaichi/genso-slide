@@ -1,6 +1,6 @@
 let zIndex = 0;
 
-export class Sprite {
+class Sprite {
     constructor(elm) {
         [this.x, this.y] = [0, 0];
         [this.width, this.height] = [
@@ -50,7 +50,7 @@ export class Sprite {
     }
 }
 
-export function text(
+function text(
     text,
     { size = 5, font = "Arial", color = "black", back = "white" } = {},
 ) {
@@ -65,7 +65,7 @@ export function text(
     return elm;
 }
 
-export function image(url, { size = 5 } = {}) {
+function image(url, { size = 5 } = {}) {
     const elm = document.createElement("img");
     elm.style.height = `${size}vh`;
     elm.style.padding = "1vh";
