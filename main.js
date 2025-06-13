@@ -7,7 +7,7 @@ const Charactor = Object.freeze({ Reimu: "reimu", Marisa: "marisa" });
 const stage = document.getElementById("genso-stage");
 stage.style.width = stage.getBoundingClientRect().width + "px";
 stage.style.height = stage.getBoundingClientRect().height + "px";
-stage.style.fontSize = stage.style.height;
+stage.style.fontSize = stage.getBoundingClientRect().height + "px";
 stage.style.position = "relative";
 
 class Actor {
