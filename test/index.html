@@ -9,10 +9,10 @@
                 const marisa = new Actor(Charactor.Marisa, Position.Left);
                 const reimu = new Actor(Charactor.Reimu, Position.Right);
                 const subtitle = new Sprite(text("JSでゆっくり動画ができる！"));
-                subtitle.position(30, 90);
+                subtitle.position(30, 50);
 
                 await marisa.say("a.mp3");
-                subtitle.set(text("ライブラリGenso-Slide!"));
+                subtitle.set(text("ライブラリGenso-Slide!", 100));
                 await reimu.say("b.mp3");
                 subtitle.hide();
             }
