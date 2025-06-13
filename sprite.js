@@ -47,7 +47,7 @@ class Sprite {
 
 function text(
     text,
-    { size = 50, font = "Arial", color = "black", back = "white" } = {},
+    { size = 5, font = "Arial", color = "black", back = "white" } = {},
 ) {
     const elm = document.createElement("p");
     elm.style.fontSize = `${size}vh`;
