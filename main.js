@@ -43,41 +43,41 @@ class Actor {
 const sleep = (time) => new Promise((resolve) => setTimeout(resolve, time));
 
 class Sprite {
-    constructor(elm) {
-        this.set(elm);
+    constructor(draw) {
+        this.set(draw);
         this.x = this.y = 0;
         [this.width, this.height] = [15, 10];
     }
 
-    set(elm) {
-        if (this.elm !== undefined) this.elm.remove();
-        this.elm = elm;
+    set(draw) {
+        if (this.draw !== undefined) this.draw.remove();
+        this.draw = draw;
 
-        this.elm.style.position = "absolute";
-        this.elm.style.zIndex = zIndex++;
+        this.draw.style.position = "absolute";
+        this.draw.style.zIndex = zIndex++;
 
-        stage.appendChild(this.elm);
+        stage.appendChild(this.draw);
     }
 
     set x(value) {
         this._x = value;
-        this.elm.style.left = fixLayoutX(this);
+        this.draw.style.left = fixLayoutX(this);
     }
 
     set y(value) {
         this._y = value;
-        this.elm.style.top = fixLayoutY(this);
+        this.draw.style.top = fixLayoutY(this);
     }
 
     set width(value) {
         this._width = value;
-        this.elm.style.width = value + "%";
+        this.draw.style.width = value + "%";
     }
 
     set height(value) {
         this._height = value;
-        this.elm.style.height = value + "%";
-        this.elm.style.fontSize = value * 0.5 + "%";
+        this.draw.style.height = value + "%";
+        this.draw.style.fontSize = value * 0.5 + "%";
     }
 
     get x() {
@@ -98,7 +98,7 @@ class Sprite {
 
     async move({ x = 0, y = 0 }, time = 1000) {
         [this._x, this._y] = [this.x + x, this.y + y];
-        const animation = this.elm.animate(
+        const animation = this.draw.animate(
             [{ left: fixLayoutX(this), top: fixLayoutY(this) }],
             time,
         );
@@ -107,35 +107,35 @@ class Sprite {
     }
 
     hide() {
-        this.elm.style.display = "none";
+        this.draw.style.display = "none";
     }
 
     show() {
-        this.elm.style.display = "block";
+        this.draw.style.display = "block";
     }
 }
 
 function text(text, { font = "Arial", color = "black", back = "white" } = {}) {
-    const elm = document.createElement("p");
-    elm.style.fontFamily = font;
-    elm.style.color = color;
-    elm.style.backgroundColor = back;
-    elm.style.textAlign = "center";
-    elm.style.display = "flex";
-    elm.style.alignItems = "center";
-    elm.style.justifyContent = "center";
-    elm.style.padding = "1%";
-    elm.style.margin = "0";
-    elm.innerHTML = text;
-    return elm;
+    const draw = document.createElement("p");
+    draw.style.fontFamily = font;
+    draw.style.color = color;
+    draw.style.backgroundColor = back;
+    draw.style.textAlign = "center";
+    draw.style.display = "flex";
+    draw.style.alignItems = "center";
+    draw.style.justifyContent = "center";
+    draw.style.padding = "1%";
+    draw.style.margin = "0";
+    draw.innerHTML = text;
+    return draw;
 }
 
 function image(url, { size = 5 } = {}) {
-    const elm = document.createElement("img");
-    elm.style.height = size + "%";
-    elm.style.margin = "0";
-    elm.src = url;
-    return elm;
+    const draw = document.createElement("img");
+    draw.style.height = size + "%";
+    draw.style.margin = "0";
+    draw.src = url;
+    return draw;
 }
 
 /// === Helper functions ===
