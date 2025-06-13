@@ -1,6 +1,8 @@
 let zIndex = 0;
 
-const stage = document.getElementById("stage");
+const stage = document.getElementById("genso-stage");
+stage.style.fontSize = stage.style.height;
+stage.style.position = "relative";
 
 class Sprite {
     constructor(elm) {
