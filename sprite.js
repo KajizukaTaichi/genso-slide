@@ -3,7 +3,10 @@ let zIndex = 0;
 class Sprite {
     constructor(elm) {
         [this.x, this.y] = [0, 0];
-        [this.width, this.height] = [0, 0];
+        [this.width, this.height] = [
+            window.innerHeight * elm.innerWidth,
+            window.innerHeight * elm.innerHeight,
+        ];
         this.set(elm);
     }
     set(elm) {
