@@ -60,26 +60,33 @@ class Sprite {
 
         stage.appendChild(this.elm);
     }
-    locus(x, y) {
-        [this.x, this.y] = [x, y];
+    set x(value) {
+        this.x = value;
         this.elm.style.left = fixLayoutX(this);
+    }
+    set y(value) {
+        this.y = value;
         this.elm.style.top = fixLayoutY(this);
     }
-    async move(x, y, time = 1000) {
-        [this.x, this.y] = [x, y];
+    set width(value) {
+        this.width = value;
+        this.elm.style.width = value + "%";
+        this.locus(this.x, this.y);
+    }
+    set height(value) {
+        this.height = value;
+        this.elm.style.height = value + "%";
+        this.elm.style.fontSize = value * 0.5 + "%";
+        this.locus(this.x, this.y);
+    }
+    async move({ x = 0, y = 0 }, time = 1000) {
+        [this.x, this.y] = [this.x + x, this.y + y];
         const animation = this.elm.animate(
             [{ left: fixLayoutX(this), top: fixLayoutY(this) }],
             time,
         );
         await animation.finished;
         this.locus(x, y);
-    }
-    size(width, height) {
-        [this.width, this.height] = [width, height];
-        this.elm.style.width = width + "%";
-        this.elm.style.height = height + "%";
-        this.elm.style.fontSize = this.height * 0.5 + "%";
-        this.locus(this.x, this.y);
     }
     hide() {
         this.elm.style.display = "none";
