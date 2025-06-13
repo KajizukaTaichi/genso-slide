@@ -120,8 +120,13 @@ function image(url, { size = 5 } = {}) {
 
 /// === Helper functions ===
 
-const fixLayoutX = (sprite) => `${sprite.x - sprite.width / 2}%`;
+const fixLayoutX = (sprite) => {
+    const value = sprite.x - sprite.width / 2;
+    if (value < 0) value = 0;
+    `${sprite.x - sprite.width / 2}%`;
+};
 const fixLayoutY = (sprite) => `${sprite.y - sprite.height / 2}%`;
+
 const image_url = (name, style = Look.Normal) =>
     `https://kajizukataichi.github.io/genso-slide/resource/${name}/${style}.jpg`;
 
