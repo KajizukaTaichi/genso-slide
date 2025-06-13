@@ -1,5 +1,7 @@
 let zIndex = 0;
 
+const stage = document.getElementById("stage");
+
 class Sprite {
     constructor(elm) {
         this.x = this.y = 0;
@@ -20,7 +22,7 @@ class Sprite {
         this.elm.style.width = `${this.width}%`;
         this.elm.style.height = `${this.height}%`;
 
-        document.body.appendChild(this.elm);
+        stage.appendChild(this.elm);
     }
     position(x, y) {
         [this.x, this.y] = [x, y];
