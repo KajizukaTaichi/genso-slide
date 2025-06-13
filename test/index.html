@@ -4,16 +4,11 @@
         <title>紹介</title>
         <meta charset="utf-8" />
         <style>
-            body {
-                margin: 100px;
+            #genso-stage {
                 border: 1px solid lightslategray;
+                margin: 100px;
                 width: 1000px;
                 height: 700px;
-                font-size: 700px;
-                position: relative;
-                display: flex;
-                align-items: center;
-                justify-content: center;
             }
             button {
                 color: white;
@@ -26,7 +21,8 @@
         </style>
     </head>
     <body>
-        <button onclick="main(); this.remove()">Play</button>
+        <div id="genso-stage"></div>
+        <button onclick="main()">Play</button>
 
         <script src="../actor.js"></script>
         <script src="../sprite.js"></script>
