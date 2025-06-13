@@ -97,7 +97,7 @@ class Sprite {
     }
 
     async move({ x = 0, y = 0 }, time = 1000) {
-        [this.x, this.y] = [this.x + x, this.y + y];
+        [this._x, this._y] = [this.x + x, this.y + y];
         const animation = this.elm.animate(
             [{ left: fixLayoutX(this), top: fixLayoutY(this) }],
             time,
