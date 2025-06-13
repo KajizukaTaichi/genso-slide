@@ -15,6 +15,7 @@ sub.position(30, 50);
 icon.position(40, 30);
 icon.size(10, 15);
 
+await icon.move(30, 30, 300);
 await marisa.say("audio/voice_1.mp3");
 icon.hide();
 
