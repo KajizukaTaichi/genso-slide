@@ -33,7 +33,6 @@ class Actor {
             const zoom = isOpen ? "101%" : "100%";
             this.draw.src = image_url(this.name, look);
             this.draw.style.zoom = zoom;
-            void stage.offsetHeight;
         });
         clearInterval(this.sayInterval);
         this.draw.style.zoom = "100%";
@@ -79,7 +78,7 @@ class Sprite {
         [this.width, this.height] = [width, height];
         this.elm.style.width = width + "%";
         this.elm.style.height = height + "%";
-        this.elm.style.fontSize = this.height + "%";
+        this.elm.style.fontSize = this.height * 0.5 + "%";
         this.position(this.x, this.y);
     }
     hide() {
@@ -90,12 +89,8 @@ class Sprite {
     }
 }
 
-function text(
-    text,
-    { size = 5, font = "Arial", color = "black", back = "white" } = {},
-) {
+function text(text, { font = "Arial", color = "black", back = "white" } = {}) {
     const elm = document.createElement("p");
-    elm.style.fontSize = size + "%";
     elm.style.fontFamily = font;
     elm.style.color = color;
     elm.style.backgroundColor = back;
