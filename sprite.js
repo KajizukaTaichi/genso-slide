@@ -3,7 +3,7 @@ let zIndex = 0;
 class Sprite {
     constructor(elm) {
         this.x = this.y = 0;
-        [this.width, this.height] = [150, 100];
+        [this.width, this.height] = [15, 10];
         console.log(elm.offsetHeight);
         this.set(elm);
     }
@@ -14,8 +14,8 @@ class Sprite {
         this.elm.style.position = "absolute";
         this.elm.style.zIndex = zIndex++;
 
-        this.elm.style.left = `${fixLayoutX(this)}vw`;
-        this.elm.style.top = `${fixLayoutY(this)}vh`;
+        this.elm.style.left = fixLayoutX(this);
+        this.elm.style.top = fixLayoutY(this);
 
         this.elm.style.width = `${this.width}vw`;
         this.elm.style.height = `${this.height}vh`;
@@ -24,13 +24,12 @@ class Sprite {
     }
     position(x, y) {
         [this.x, this.y] = [x, y];
-        console.log(this.x, this.width, fixLayoutX(this));
-        this.elm.style.left = `${fixLayoutX(this)}vw`;
-        this.elm.style.top = `${fixLayoutY(this)}vh`;
+        this.elm.style.left = fixLayoutX(this);
+        this.elm.style.top = fixLayoutY(this);
     }
     async move(x, y, time = 1000) {
         const animation = this.elm.animate(
-            [{ left: `${fixLayoutX(this)}vw`, top: `${fixLayoutY(this)}vh` }],
+            [{ left: fixLayoutX(this), top: fixLayoutY(this) }],
             time,
         );
         await animation.finished;
@@ -73,5 +72,5 @@ function image(url, { size = 5 } = {}) {
     return elm;
 }
 
-const fixLayoutX = (sprite) => sprite.x + sprite.width / 2;
-const fixLayoutY = (sprite) => sprite.y + sprite.height / 2;
+const fixLayoutX = `${(sprite) => sprite.x - sprite.width / 2}vw`;
+const fixLayoutY = `${(sprite) => sprite.y - sprite.height / 2}vh`;
