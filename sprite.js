@@ -42,20 +42,25 @@ class Sprite {
     }
 }
 
-function text(text, { size = 50, font = "Arial", color = "black" } = {}) {
+function text(
+    text,
+    { size = 50, font = "Arial", color = "black", back = "white" } = {},
+) {
     const elm = document.createElement("p");
     elm.style.fontSize = `${size}vh`;
     elm.style.fontFamily = font;
     elm.style.color = color;
+    elm.style.backgroundColor = back;
     elm.style.padding = "1vh";
     elm.style.margin = "0";
     elm.innerHTML = text;
     return elm;
 }
 
-function image(url) {
+function image(url, { size = 50 } = {}) {
     const elm = document.createElement("img");
-    elm.style.padding = "10px";
+    elm.style.height = `${size}vh`;
+    elm.style.padding = "1vh";
     elm.style.margin = "0";
     elm.src = url;
     return elm;
