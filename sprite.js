@@ -29,6 +29,16 @@ class Sprite {
         this.elm.style.left = `${x}vw`;
         this.elm.style.top = `${y}vh`;
     }
+    move(x, y, time = 1000) {
+        this.elm.animate(
+            [
+                { left: `${this.y}vw`, left: `${this.x}vw` },
+                { left: `${y}vw`, left: `${x}vw` },
+            ],
+            time,
+        );
+        this.position(x, y);
+    }
     size(x, y) {
         [this.width, this.height] = [x, y];
         this.elm.style.width = `${x}vw`;
