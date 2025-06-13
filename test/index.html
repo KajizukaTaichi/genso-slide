@@ -1,6 +1,8 @@
 <!doctype html>
 <html>
-    <head></head>
+    <head>
+        <title>紹介</title>
+    </head>
     <body>
         <script src="../actor.js"></script>
         <script src="../sprite.js"></script>
@@ -12,7 +14,7 @@
                 subtitle.position(30, 50);
 
                 await marisa.say("a.mp3");
-                subtitle.set(text("Genso-Slide!", 100));
+                subtitle.set(text("Genso Slide!", 100));
                 await reimu.say("b.mp3");
                 subtitle.hide();
             }
