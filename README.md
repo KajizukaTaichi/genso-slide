@@ -9,22 +9,25 @@ JavaScriptでゆっくり動画が出来るスライド作成ライブラリで�
 const marisa = new Actor(Charactor.Marisa, Position.Left);
 const reimu = new Actor(Charactor.Reimu, Position.Right);
 
-const icon = new Sprite(image("image/icon.jpg"));
-icon.position(50, 0);
-icon.size(10, 15);
-await icon.move(50, 30, 800);
+const js_icon = new Sprite(image("image/icon.jpg"));
+js_icon.position(50, 0);
+js_icon.size(10, 15);
+js_icon.move(50, 30, 800);
+await sleep(300);
 
-const sub = new Sprite(text("JSでゆっくり動画ができる！", { back: "lightblue" }));
-sub.position(50, 50);
-sub.size(50, 10);
+const style = { back: "lightblue" };
+const content = "JSでゆっくり動画ができる！";
+const subtitle = new Sprite(text(content, style));
+subtitle.position(50, 50);
+subtitle.size(50, 10);
 
 await marisa.say("audio/voice_1.mp3");
-sub.position(50, 40);
-icon.hide();
-
-sub.set(text("Genso Slide", { size: 10, font: "monospace" }));
-await sleep(300);
 await reimu.say("audio/voice_2.mp3");
+
+const textDecoration = { size: 10, font: "monospace" };
+subtitle.set(text("Genso Slide", textDecoration));
+subtitle.position(50, 40);
+js_icon.hide();
 ```
 
 名前の由来は、「Gentoo Linux」と「幻想郷」にインスパイアされています。
