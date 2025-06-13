@@ -8,7 +8,6 @@ class Sprite {
     constructor(elm) {
         this.x = this.y = 0;
         [this.width, this.height] = [15, 10];
-        console.log(elm.offsetHeight);
         this.set(elm);
     }
     set(elm) {
