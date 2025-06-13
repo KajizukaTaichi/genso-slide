@@ -28,6 +28,7 @@ class Sprite {
         this.elm.style.top = fixLayoutY(this);
     }
     async move(x, y, time = 1000) {
+        [this.x, this.y] = [x, y];
         const animation = this.elm.animate(
             [{ left: fixLayoutX(this), top: fixLayoutY(this) }],
             time,
