@@ -23,23 +23,53 @@ class Actor {
     }
 
     async say(audio_url) {
-        this.sayInterval = setInterval(() => {
-            const look = Object.values(Look)[Math.floor(Math.random() * 2)];
+        await waitPlayAudioWithMouthSync(audio_url, (isOpen) => {
+            const look = isOpen ? Look.Say : Look.Normal;
             this.draw.src = image_url(this.name, look);
-        }, 100);
-        await waitPlayAudio(audio_url);
+        });
         clearInterval(this.sayInterval);
         this.draw.src = image_url(this.name, Look.say);
     }
 }
 
-function waitPlayAudio(src) {
-    return new Promise((resolve, reject) => {
-        const audio = new Audio(src);
-        audio.addEventListener("ended", () => resolve());
-        audio.addEventListener("error", (e) => reject(e));
-        audio.play().catch(reject);
+async function waitPlayAudioWithMouthSync(audio_url, onMouthChange) {
+    const audioCtx = new window.AudioContext();
+    const response = await fetch(audio_url);
+    const arrayBuffer = await response.arrayBuffer();
+    const audioBuffer = await audioCtx.decodeAudioData(arrayBuffer);
+
+    const source = audioCtx.createBufferSource();
+    source.buffer = audioBuffer;
+
+    const analyser = audioCtx.createAnalyser();
+    const gainNode = audioCtx.createGain();
+
+    source.connect(gainNode).connect(analyser).connect(audioCtx.destination);
+    analyser.fftSize = 512;
+
+    const dataArray = new Uint8Array(analyser.frequencyBinCount);
+    let playing = true;
+
+    const updateMouth = () => {
+        analyser.getByteFrequencyData(dataArray);
+        const volume = dataArray.reduce((a, b) => a + b, 0) / dataArray.length;
+        if (playing) {
+            onMouthChange(volume > 30);
+            requestAnimationFrame(updateMouth);
+        }
+    };
+
+    updateMouth();
+    source.start();
+
+    await new Promise((resolve) => {
+        source.onended = () => {
+            playing = false;
+            resolve();
+        };
     });
+
+    audioCtx.close();
 }
 
 const image_url = (name, style = Look.Normal) =>
