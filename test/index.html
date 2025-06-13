@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+    <head></head>
+    <body>
+        <script src="../actor.js"></script>
+        <script src="../sprite.js"></script>
+        <script>
+            async function main() {
+                const marisa = new Actor(Charactor.Marisa, Position.Left);
+                const reimu = new Actor(Charactor.Reimu, Position.Right);
+                const title = new Sprite(text("Hello"));
+                await reimu.say("hello.mp3");
+                title.position(30, 30);
+                await marisa.say("hello.mp3");
+                title.set(text("Bye"));
+            }
+            main();
+        </script>
+    </body>
+</html>
