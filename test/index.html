@@ -26,12 +26,12 @@
                 sub.size(50, 10);
 
                 await marisa.say("audio/voice_1.mp3");
-                sub.position(50, 40);
-                icon.hide();
-
-                sub.set(text("Genso Slide", { size: 10, font: "monospace" }));
                 await sleep(300);
                 await reimu.say("audio/voice_2.mp3");
+
+                sub.set(text("Genso Slide", { size: 10, font: "monospace" }));
+                sub.position(50, 40);
+                icon.hide();
             }
         </script>
     </body>
