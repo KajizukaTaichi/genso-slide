@@ -79,7 +79,7 @@ class Sprite {
         [this.width, this.height] = [width, height];
         this.elm.style.width = width + "%";
         this.elm.style.height = height + "%";
-        this.elm.style.font = this.height + "%";
+        this.elm.style.fontSize = this.height + "%";
         this.position(this.x, this.y);
     }
     hide() {
