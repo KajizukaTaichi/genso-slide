@@ -61,7 +61,7 @@ class Sprite {
 
         this.elm.style.width = this.width + "%";
         this.elm.style.height = this.height + "%";
-        this.elm.style.height = this.height + "%";
+        this.elm.style.font = this.height + "%";
 
         stage.appendChild(this.elm);
     }
