@@ -10,7 +10,7 @@ const marisa = new Actor(Charactor.Marisa, Position.Left);
 const reimu = new Actor(Charactor.Reimu, Position.Right);
 
 const icon = new Sprite(image("image/icon.jpg"));
-icon.position(30, 30);
+icon.position(50, 0);
 icon.size(10, 15);
 await icon.move(50, 30, 800);
 
