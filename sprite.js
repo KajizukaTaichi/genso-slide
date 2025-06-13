@@ -32,8 +32,8 @@ class Sprite {
     move(x, y, time = 1000) {
         this.elm.animate(
             [
-                { left: `${this.y}vw`, left: `${this.x}vw` },
-                { left: `${y}vw`, left: `${x}vw` },
+                { left: `${this.y}vw`, top: `${this.x}vw` },
+                { left: `${y}vw`, top: `${x}vw` },
             ],
             time,
         );
