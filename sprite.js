@@ -60,6 +60,9 @@ function text(
     elm.style.color = color;
     elm.style.backgroundColor = back;
     elm.style.textAlign = "center";
+    elm.style.display = "flex";
+    elm.style.alignItems = "center";
+    elm.style.justifyContent = "center";
     elm.style.padding = "1vh";
     elm.style.margin = "0";
     elm.innerHTML = text;
