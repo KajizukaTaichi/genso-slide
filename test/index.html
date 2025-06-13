@@ -20,7 +20,7 @@
                 const marisa = new Actor(Charactor.Marisa, Position.Left);
                 const reimu = new Actor(Charactor.Reimu, Position.Right);
 
-                const calendar = new Sprite(text("梶塚太智 作", { size: 3 }));
+                const calendar = new Sprite(text("梶塚太智 作"));
 
                 const js_icon = new Sprite(image("image/icon.jpg"));
                 js_icon.position(50, 0);
@@ -38,7 +38,7 @@
                 await marisa.say("audio/voice_1.mp3");
                 await reimu.say("audio/voice_2.mp3");
 
-                const textDecoration = { size: 10, font: "monospace" };
+                const textDecoration = { font: "monospace" };
                 subtitle.set(text("Genso Slide", textDecoration));
                 subtitle.position(50, 40);
                 js_icon.hide();
