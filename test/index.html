@@ -26,7 +26,7 @@
                 js_icon.position(50, 0);
                 js_icon.size(10, 15);
 
-                js_icon.move(50, 30, 800);
+                js_icon.move(js_icon.width, js_icon.height + 30, 800);
                 await sleep(300);
 
                 const style = { back: "lightblue" };
@@ -40,7 +40,8 @@
 
                 const textDecoration = { font: "monospace" };
                 subtitle.set(text("Genso Slide", textDecoration));
-                subtitle.position(50, 40);
+                subtitle.size(subtitle.width, subtitle.width + 20);
+                subtitle.position(50, subtitle.y - 10);
                 js_icon.hide();
             }
         </script>
