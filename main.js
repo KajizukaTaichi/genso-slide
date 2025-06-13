@@ -44,9 +44,9 @@ const sleep = (time) => new Promise((resolve) => setTimeout(resolve, time));
 
 class Sprite {
     constructor(elm) {
+        this.set(elm);
         this.x = this.y = 0;
         [this.width, this.height] = [15, 10];
-        this.set(elm);
     }
     set(elm) {
         if (this.elm !== undefined) this.elm.remove();
