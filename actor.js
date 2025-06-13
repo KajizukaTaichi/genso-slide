@@ -4,7 +4,6 @@ const Charactor = Object.freeze({ Reimu: "reimu", Marisa: "marisa" });
 
 class Actor {
     constructor(name, position) {
-        // Set fields
         [this.name, this.position] = [name, position];
 
         this.draw = document.createElement("img");
