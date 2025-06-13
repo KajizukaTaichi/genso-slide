@@ -43,4 +43,4 @@ function waitPlayAudio(src) {
 }
 
 const image_url = (name, style = Look.Normal) =>
-    `../resource/${name}/${style}.jpg`;
+    `https://kajizukataichi.github.io/genso-slide/resource/${name}/${style}.jpg`;
