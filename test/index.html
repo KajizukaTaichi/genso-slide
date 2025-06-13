@@ -13,10 +13,12 @@
                 const marisa = new Actor(Charactor.Marisa, Position.Left);
                 const reimu = new Actor(Charactor.Reimu, Position.Right);
 
-                const sub = new Sprite(text("JSでゆっくり動画ができる！"));
+                const sub = new Sprite(
+                    text("JSでゆっくり動画ができる！", { back: "lightblue" }),
+                );
                 const icon = new Sprite(image("image/icon.jpg"));
                 sub.position(50, 50);
-                sub.size(30, 10);
+                sub.size(50, 10);
                 icon.position(20, 30);
                 icon.size(10, 15);
 
