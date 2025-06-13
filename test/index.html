@@ -16,10 +16,11 @@
                 const sub = new Sprite(text("JSでゆっくり動画ができる！"));
                 const icon = new Sprite(image("image/icon.jpg"));
                 sub.position(50, 50);
-                icon.position(50, 30);
+                sub.size(30, 10);
+                icon.position(20, 30);
                 icon.size(10, 15);
 
-                await icon.move(30, 30, 300);
+                await icon.move(20, 50, 300);
                 await marisa.say("audio/voice_1.mp3");
                 icon.hide();
 
