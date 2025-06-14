@@ -44,7 +44,12 @@ class Actor {
                 }
             }
         }, 100);
-        await playAudio(audio_url);
+        await new Promise((resolve, reject) => {
+            const audio = new Audio(audio_url);
+            audio.addEventListener("ended", () => resolve());
+            audio.addEventListener("error", (e) => reject(e));
+            audio.play().catch(reject);
+        });
         clearInterval(this.sayInterval);
         this.draw.src = image_url(this.name, Look.Normal);
     }
@@ -161,11 +166,3 @@ const fixLayoutY = (sprite) => fixLayout(sprite, "y", "height");
 
 const image_url = (name, style = Look.Normal) =>
     `https://kajizukataichi.github.io/genso-slide/resource/${name}/${style}.jpg`;
-
-const playAudio = (src) =>
-    new Promise((resolve, reject) => {
-        const audio = new Audio(src);
-        audio.addEventListener("ended", () => resolve());
-        audio.addEventListener("error", (e) => reject(e));
-        audio.play().catch(reject);
-    });
