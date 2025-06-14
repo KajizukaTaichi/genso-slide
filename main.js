@@ -28,14 +28,15 @@ class Actor {
     }
 
     async say(audio_url) {
-        await waitPlayAudioWithMouthSync(audio_url, (isOpen) => {
+        this.sayInterval = setInterval(() => {
+            const isOpen = Math.floor(Math.random() * 2) != 0;
             const look = isOpen ? Look.Say : Look.Normal;
-            const zoom = isOpen ? "101%" : "100%";
+            const height = !isOpen ? "51vh" : "50vh";
             this.draw.src = image_url(this.name, look);
-            this.draw.style.zoom = zoom;
-        });
+            this.draw.style.height = height;
+        }, 100);
+        await playAudio(audio_url);
         clearInterval(this.sayInterval);
-        this.draw.style.zoom = "100%";
         this.draw.src = image_url(this.name, Look.Normal);
     }
 }
@@ -152,42 +153,10 @@ const fixLayoutY = (sprite) => fixLayout(sprite, "y", "height");
 const image_url = (name, style = Look.Normal) =>
     `https://kajizukataichi.github.io/genso-slide/resource/${name}/${style}.jpg`;
 
-async function waitPlayAudioWithMouthSync(audio_url, onMouthChange) {
-    const audioCtx = new window.AudioContext();
-    const response = await fetch(audio_url);
-    const arrayBuffer = await response.arrayBuffer();
-    const audioBuffer = await audioCtx.decodeAudioData(arrayBuffer);
-
-    const source = audioCtx.createBufferSource();
-    source.buffer = audioBuffer;
-
-    const analyser = audioCtx.createAnalyser();
-    const gainNode = audioCtx.createGain();
-
-    source.connect(gainNode).connect(analyser).connect(audioCtx.destination);
-    analyser.fftSize = 512;
-
-    const dataArray = new Uint8Array(analyser.frequencyBinCount);
-    let playing = true;
-
-    const updateMouth = () => {
-        analyser.getByteFrequencyData(dataArray);
-        const volume = dataArray.reduce((a, b) => a + b, 0) / dataArray.length;
-        if (playing) {
-            onMouthChange(volume > 30);
-            requestAnimationFrame(updateMouth);
-        }
-    };
-
-    updateMouth();
-    source.start();
-
-    await new Promise((resolve) => {
-        source.onended = () => {
-            playing = false;
-            resolve();
-        };
+const playAudio = (src) =>
+    new Promise((resolve, reject) => {
+        const audio = new Audio(src);
+        audio.addEventListener("ended", () => resolve());
+        audio.addEventListener("error", (e) => reject(e));
+        audio.play().catch(reject);
     });
-
-    audioCtx.close();
-}
