@@ -31,7 +31,7 @@ class Actor {
         this.sayInterval = setInterval(() => {
             const isOpen = Math.floor(Math.random() * 2) != 0;
             const look = isOpen ? Look.Say : Look.Normal;
-            const height = !isOpen ? "51vh" : "50vh";
+            const height = !isOpen ? "51%" : "50%";
             this.draw.src = image_url(this.name, look);
             this.draw.style.height = height;
         }, 100);
