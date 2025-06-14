@@ -11,10 +11,6 @@ JavaScriptによってプログラマブルであることで表現や制御の�
 const marisa = new Actor(Charactor.Marisa, Position.Left);
 const reimu = new Actor(Charactor.Reimu, Position.Right);
 
-const calendar = new Sprite(text("梶塚太智 作"));
-[calendar.width, calendar.height] = [15, 3];
-calendar.x = calendar.y = 100;
-
 const js_icon = new Sprite(image("image/icon.jpg"));
 [js_icon.width, js_icon.height] = [10, 15];
 [js_icon.x, js_icon.y] = [50, 0];
