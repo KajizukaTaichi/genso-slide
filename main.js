@@ -68,6 +68,8 @@ class Sprite {
         if (this.draw !== undefined) this.draw.remove();
         this.draw = draw;
 
+        [this.x, this.y] = [this.x, this.y];
+        [this.width, this.height] = [this.width, this.height];
         this.draw.style.position = "absolute";
         this.draw.style.zIndex = zIndex++;
 
