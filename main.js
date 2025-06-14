@@ -162,7 +162,6 @@ function image(url, { size = 5 } = {}) {
 
 const fixLayout = (sprite, position, size) => {
     let value = sprite[position] - sprite[size] / 2;
-    console.log(sprite, value);
     if (value < 0) value = 0;
     if (value > 100) value = sprite[size];
     return value + "%";
