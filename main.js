@@ -29,11 +29,20 @@ class Actor {
 
     async say(audio_url) {
         this.sayInterval = setInterval(() => {
-            const isOpen = Math.floor(Math.random() * 2) != 0;
-            const look = isOpen ? Look.Say : Look.Normal;
-            const height = !isOpen ? "51%" : "50%";
-            this.draw.src = image_url(this.name, look);
-            this.draw.style.height = height;
+            const seed = Math.floor(Math.random() * 10);
+            if (seed >= 3) {
+                if (this.draw.src == image_url(this.name, Look.Normal)) {
+                    this.draw.src = image_url(this.name, Look.Say);
+                } else {
+                    this.draw.src = image_url(this.name, Look.Normal);
+                }
+            } else {
+                if (this.draw.style.height == "50%") {
+                    this.draw.style.height = "51%";
+                } else {
+                    this.draw.style.height = "50%";
+                }
+            }
         }, 100);
         await playAudio(audio_url);
         clearInterval(this.sayInterval);
