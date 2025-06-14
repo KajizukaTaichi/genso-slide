@@ -68,10 +68,11 @@ class Sprite {
         if (this.draw !== undefined) this.draw.remove();
         this.draw = draw;
 
-        [this.x, this.y] = [this.x, this.y];
-        [this.width, this.height] = [this.width, this.height];
         this.draw.style.position = "absolute";
         this.draw.style.zIndex = zIndex++;
+
+        [this.width, this.height] = [this.width, this.height];
+        [this.x, this.y] = [this.x, this.y];
 
         stage.appendChild(this.draw);
     }
@@ -89,12 +90,14 @@ class Sprite {
     set width(value) {
         this._width = value;
         this.draw.style.width = value + "%";
+        this.x = this.x;
     }
 
     set height(value) {
         this._height = value;
         this.draw.style.height = value + "%";
         this.draw.style.fontSize = value * 0.5 + "%";
+        this.y = this.y;
     }
 
     get x() {
@@ -159,6 +162,7 @@ function image(url, { size = 5 } = {}) {
 
 const fixLayout = (sprite, position, size) => {
     let value = sprite[position] - sprite[size] / 2;
+    console.log(sprite, value);
     if (value < 0) value = 0;
     if (value > 100) value = sprite[size];
     return value + "%";
