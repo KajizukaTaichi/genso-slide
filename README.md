@@ -33,9 +33,9 @@ await reimu.say("audio/voice_2.mp3");
 
 const textDecoration = { font: "monospace" };
 subtitle.set(text("Genso Slide", textDecoration));
-subtitle.width = subtitle.width + 20;
-subtitle.height = subtitle.height + 20;
-[subtitle.x, subtitle.y] = [50, subtitle.y - 10];
+subtitle.width += 20;
+subtitle.height += 20;
+subtitle.y -= 10;
 js_icon.hide();
 ```
 
