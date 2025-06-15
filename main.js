@@ -55,7 +55,6 @@ class Actor {
         } else {
             const utt = new SpeechSynthesisUtterance(audio_url);
             [utt.lang, utt.pitch, utt.rate] = ["ja-JP", 1.2, 1];
-            speechSynthesis.speak(utt);
             await new Promise((resolve, reject) => {
                 utt.onend = resolve;
                 utt.onerror = (event) => reject(event.error);
