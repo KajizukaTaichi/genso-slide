@@ -27,7 +27,7 @@ class Actor {
         stage.appendChild(this.draw);
     }
 
-    async say(audio_url, isText = true) {
+    async say(audio_url) {
         this.sayInterval = setInterval(() => {
             const seed = Math.floor(Math.random() * 10);
             if (seed >= 3) {
@@ -44,23 +44,12 @@ class Actor {
                 }
             }
         }, 100);
-
-        if (isText) {
-            await new Promise((resolve, reject) => {
-                const audio = new Audio(audio_url);
-                audio.addEventListener("ended", () => resolve());
-                audio.addEventListener("error", (e) => reject(e));
-                audio.play().catch(reject);
-            });
-        } else {
-            const utt = new SpeechSynthesisUtterance(audio_url);
-            [utt.lang, utt.pitch, utt.rate] = ["ja-JP", 1.2, 1];
-            await new Promise((resolve, reject) => {
-                utt.onend = resolve;
-                utt.onerror = (event) => reject(event.error);
-                speechSynthesis.speak(utt);
-            });
-        }
+        await new Promise((resolve, reject) => {
+            const audio = new Audio(audio_url);
+            audio.addEventListener("ended", () => resolve());
+            audio.addEventListener("error", (e) => reject(e));
+            audio.play().catch(reject);
+        });
         clearInterval(this.sayInterval);
         this.draw.src = image_url(this.name, Look.Normal);
     }
