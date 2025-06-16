@@ -30,7 +30,7 @@ class Actor {
     async say(audio_url) {
         this.sayInterval = setInterval(() => {
             const seed = Math.floor(Math.random() * 10);
-            if (seed >= 3) {
+            if (seed >= 4) {
                 if (this.draw.src == image_url(this.name, Look.Normal)) {
                     this.draw.src = image_url(this.name, Look.Say);
                 } else {
