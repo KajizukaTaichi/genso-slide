@@ -30,13 +30,14 @@ class Actor {
     async say(audio_url) {
         this.sayInterval = setInterval(() => {
             const seed = Math.floor(Math.random() * 10);
-            if (seed >= 4) {
+            if (seed >= 2) {
                 if (this.draw.src == image_url(this.name, Look.Normal)) {
                     this.draw.src = image_url(this.name, Look.Say);
                 } else {
                     this.draw.src = image_url(this.name, Look.Normal);
                 }
-            } else {
+            }
+            if (seed >= 5) {
                 if (this.draw.style.height == "50%") {
                     this.draw.style.height = "51%";
                 } else {
